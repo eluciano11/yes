@@ -1,20 +1,38 @@
-import { Box, Typography } from "@mui/material";
-import AudioVisualHelp from "@yes/components/AudioVisualHelp";
+import ValuesTable from "@yes/components/ValuesForm";
+import ValuesResponse from "@yes/types/responses";
 
-export default function Values() {
-  return (
-    <form>
-      <Typography variant="h2" align="center">
-        Valores
-      </Typography>
-      <Box display="flex" justifyContent="center">
-        <AudioVisualHelp url="http://www.google.com" />
-      </Box>
-      <Typography variant="body1" color="text.secondary" align="center" mt={2}>
-        Escoge de 3 a 5 valores basado en la guía de más de 100 valores que te
-        proveemos:
-      </Typography>
-      <div>Testing</div>
-    </form>
-  );
+interface Response {
+  data?: ValuesResponse;
+  error?: { message: string };
+}
+
+async function getValues(): Promise<Response> {
+  const res = await fetch("http://localhost:3000/api/values");
+
+  if (!res.ok) {
+    return { error: { message: "Error fetching values" } };
+  }
+
+  const data: ValuesResponse = await res.json();
+
+  return { data };
+}
+
+export default async function Values() {
+  const { data, error } = await getValues();
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
+
+  if (data) {
+    return (
+      <ValuesTable
+        values={data.values}
+        valueCategories={data.valueCategories}
+      />
+    );
+  }
+
+  return null;
 }

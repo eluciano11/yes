@@ -1,5 +1,5 @@
 import ValuesTable from "@yes/components/ValuesForm";
-import ValuesResponse from "@yes/types/responses";
+import { ValuesResponse } from "@yes/types/responses";
 
 interface Response {
   data?: ValuesResponse;

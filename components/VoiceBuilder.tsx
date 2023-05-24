@@ -46,7 +46,7 @@ export default function VoiceBuilder({
       }
       helpUrl="https://www.youtube.com/watch?v=9bZkp7q19f0"
     >
-      <Box p={3}>
+      <Box py={3}>
         <Typography variant="body1" display="inline">
           Mi marca
         </Typography>

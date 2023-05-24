@@ -1,7 +1,7 @@
 "use client";
 
 import { VoicesResponse } from "@yes/types/responses";
-import Field from "./Field";
+import Section from "./Section";
 import {
   Box,
   Button,
@@ -32,7 +32,7 @@ export default function VoiceBuilder({
   communicationTypes,
 }: VoiceBuilderProps) {
   return (
-    <Field
+    <Section
       name="Voz de la marca"
       description={
         <Typography mt={2} variant="body1">
@@ -118,6 +118,6 @@ export default function VoiceBuilder({
           </Button>
         </Box>
       </Box>
-    </Field>
+    </Section>
   );
 }

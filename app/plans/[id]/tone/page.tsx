@@ -23,7 +23,6 @@ export default function Tone() {
       >
         Llena los blancos según las alternativas que correspondan a tu marca.
       </Typography>
-      <div>Testing</div>
     </form>
   );
 }

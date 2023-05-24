@@ -1,5 +1,5 @@
 import { TextField, Typography, Box } from "@mui/material";
-import Field from "./Field";
+import Section from "./Section";
 
 export default function BusinessInformationForm() {
   return (
@@ -14,7 +14,7 @@ export default function BusinessInformationForm() {
         decisiones.
       </Typography>
       <form>
-        <Field
+        <Section
           name="El nombre"
           description={
             <Typography mt={2} variant="body1">
@@ -35,8 +35,8 @@ export default function BusinessInformationForm() {
             fullWidth
             rows={2}
           ></TextField>
-        </Field>
-        <Field
+        </Section>
+        <Section
           name="La idea de negocio"
           description={
             <Typography mt={2} variant="body1">
@@ -56,8 +56,8 @@ export default function BusinessInformationForm() {
             fullWidth
             rows={2}
           ></TextField>
-        </Field>
-        <Field
+        </Section>
+        <Section
           name="Misión"
           description={
             <Box mt={2}>
@@ -91,8 +91,8 @@ export default function BusinessInformationForm() {
             fullWidth
             rows={2}
           ></TextField>
-        </Field>
-        <Field
+        </Section>
+        <Section
           name="Visión"
           description={
             <Box mt={2}>
@@ -120,7 +120,7 @@ export default function BusinessInformationForm() {
             fullWidth
             rows={2}
           ></TextField>
-        </Field>
+        </Section>
       </form>
     </>
   );

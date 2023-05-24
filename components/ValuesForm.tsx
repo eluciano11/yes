@@ -8,10 +8,10 @@ import {
   Tabs,
   Typography,
 } from "@mui/material";
-import ValuesResponse from "@yes/types/responses";
+import type { ValuesResponse } from "@yes/types/responses";
 import { useState } from "react";
 import chunk from "lodash.chunk";
-import Field from "./Field";
+import Section from "./Section";
 
 export default function ValuesTable({
   values,
@@ -34,7 +34,7 @@ export default function ValuesTable({
   );
 
   return (
-    <Field
+    <Section
       name="Valores"
       description={
         <Typography mt={2} variant="body1">
@@ -45,7 +45,7 @@ export default function ValuesTable({
       helpUrl="https://www.youtube.com/watch?v=9bZkp7q19f0"
     >
       <Grid container>
-        <Grid item xs={12} sm={7}>
+        <Grid item xs={12}>
           <form>
             <Tabs
               value={valueCategoryId}
@@ -80,6 +80,6 @@ export default function ValuesTable({
           </form>
         </Grid>
       </Grid>
-    </Field>
+    </Section>
   );
 }

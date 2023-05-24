@@ -10,7 +10,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import Field from "@yes/components/Field";
+import Section from "@yes/components/Section";
 import { useState } from "react";
 
 const Steps = [
@@ -53,7 +53,7 @@ export default function History() {
   const handleBack = () => setActiveStep((prev) => prev - 1);
 
   return (
-    <Field
+    <Section
       name="Historia"
       description={
         <Typography mt={2} variant="body1">
@@ -101,6 +101,6 @@ export default function History() {
           </Step>
         ))}
       </Stepper>
-    </Field>
+    </Section>
   );
 }

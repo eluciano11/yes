@@ -2,7 +2,6 @@
 
 import { Box, Typography } from "@mui/material";
 import { PropsWithChildren, ReactNode } from "react";
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import AudioVisualHelp from "./AudioVisualHelp";
 
 interface FieldProps {
@@ -11,7 +10,7 @@ interface FieldProps {
   helpUrl?: string;
 }
 
-export default function Field({
+export default function Section({
   name,
   description,
   helpUrl,
@@ -22,8 +21,8 @@ export default function Field({
       <Typography variant="h4" textTransform="uppercase">
         {name}
       </Typography>
-      {helpUrl && <AudioVisualHelp url={helpUrl} />}
       {description}
+      {helpUrl && <AudioVisualHelp url={helpUrl} />}
       <Box mt={2}>{children}</Box>
     </Box>
   );

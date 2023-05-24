@@ -1,6 +1,14 @@
 "use client";
 
-import { Box, Step, StepButton, StepLabel, Stepper } from "@mui/material";
+import {
+  Alert,
+  Box,
+  Button,
+  Step,
+  StepButton,
+  StepLabel,
+  Stepper,
+} from "@mui/material";
 import { PropsWithChildren } from "react";
 import Link from "next/link";
 
@@ -56,6 +64,12 @@ export default function PlanLayout({ children }: PropsWithChildren) {
         ))}
       </Stepper>
       {children}
+      <Alert severity="info" variant="outlined" sx={{ position: "relative" }}>
+        ¿Necesitas ayuda? Separa una sección de consultoría aquí.
+        <Button sx={{ position: "absolute", top: 6, right: 16 }}>
+          AGENDAR CITA
+        </Button>
+      </Alert>
     </Box>
   );
 }

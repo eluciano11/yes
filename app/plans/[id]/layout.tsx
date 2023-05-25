@@ -78,8 +78,8 @@ export default function PlanLayout({ children }: PropsWithChildren) {
         <Button
           href={Steps[isFirst ? 0 : activeStep - 1].path}
           LinkComponent={Link}
-          variant="contained"
-          color="secondary"
+          variant="outlined"
+          color="primary"
           disabled={isFirst}
         >
           Ir atras

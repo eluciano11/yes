@@ -4,6 +4,7 @@ import {
   Alert,
   Box,
   Button,
+  Grid,
   Step,
   StepButton,
   StepLabel,
@@ -11,6 +12,7 @@ import {
 } from "@mui/material";
 import { PropsWithChildren } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface Step {
   label: string;
@@ -52,9 +54,15 @@ const Steps: Step[] = [
 ];
 
 export default function PlanLayout({ children }: PropsWithChildren) {
+  const pathname = usePathname();
+  const activeStep = Steps.findIndex((step) => step.path === pathname);
+
+  const isFirst = activeStep <= 0;
+  const isLast = activeStep + 1 === Steps.length;
+
   return (
     <Box mt={3}>
-      <Stepper alternativeLabel>
+      <Stepper activeStep={activeStep} alternativeLabel>
         {Steps.map((step) => (
           <Step key={step.label} disabled={false}>
             <StepButton href={step.path} LinkComponent={Link}>
@@ -63,8 +71,35 @@ export default function PlanLayout({ children }: PropsWithChildren) {
           </Step>
         ))}
       </Stepper>
+
       {children}
-      <Alert severity="info" variant="outlined" sx={{ position: "relative" }}>
+
+      <Grid container alignItems="center" justifyContent="space-between">
+        <Button
+          href={Steps[isFirst ? 0 : activeStep - 1].path}
+          LinkComponent={Link}
+          variant="contained"
+          color="secondary"
+          disabled={isFirst}
+        >
+          Ir atras
+        </Button>
+        <Button
+          href={Steps[isLast ? activeStep : activeStep + 1].path}
+          LinkComponent={Link}
+          variant="contained"
+          color="primary"
+          disabled={isLast}
+        >
+          Siguiente
+        </Button>
+      </Grid>
+
+      <Alert
+        severity="info"
+        variant="outlined"
+        sx={{ position: "relative", mt: 3 }}
+      >
         ¿Necesitas ayuda? Separa una sección de consultoría aquí.
         <Button sx={{ position: "absolute", top: 6, right: 16 }}>
           AGENDAR CITA

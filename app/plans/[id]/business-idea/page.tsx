@@ -23,9 +23,10 @@ export default function BusinessIdea() {
         <TextField
           name="name"
           placeholder="Escribe aquí el nombre de tu marca personal o comercial. Limitar a 100 caracteres máximo."
+          rows={4}
+          autoFocus
           multiline
           fullWidth
-          rows={2}
         ></TextField>
       </form>
     </Section>

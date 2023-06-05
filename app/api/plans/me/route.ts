@@ -1,13 +1,14 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import Plans from "@yes/components/Plans";
 
-async function getPlans() {
+export async function GET() {
   // Get the user from supabase.
   const supabase = createServerComponentClient({ cookies });
   const user = await supabase.auth.getUser();
 
-  if (user.error) return { error: true };
+  if (user.error)
+    return NextResponse.json({ error: user.error }, { status: 500 });
 
   // Update the user's plan in supabase.
   const { data: plans, error } = await supabase
@@ -16,14 +17,13 @@ async function getPlans() {
     .eq("user_id", user.data.user.id);
 
   if (error) {
-    return { error: true };
+    return NextResponse.json(
+      { error },
+      {
+        status: 500,
+      }
+    );
   }
 
-  return { plans: plans ?? [] };
-}
-
-export default async function PlansPage() {
-  const { plans } = await getPlans();
-
-  return <Plans plans={plans} />;
+  return NextResponse.json({ plans });
 }

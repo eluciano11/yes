@@ -51,6 +51,59 @@ export interface Database {
           name?: string | null
         }
       }
+      plans: {
+        Row: {
+          answer_1: string | null
+          answer_2: string | null
+          answer_3: string | null
+          brand_type_id: number | null
+          communication_type_id: number | null
+          created_at: string | null
+          id: number
+          mission: string | null
+          name: string | null
+          objective_ids: number[] | null
+          projection_ids: number[] | null
+          story: string | null
+          user_id: string | null
+          value_ids: number[] | null
+          vision: string | null
+        }
+        Insert: {
+          answer_1?: string | null
+          answer_2?: string | null
+          answer_3?: string | null
+          brand_type_id?: number | null
+          communication_type_id?: number | null
+          created_at?: string | null
+          id?: number
+          mission?: string | null
+          name?: string | null
+          objective_ids?: number[] | null
+          projection_ids?: number[] | null
+          story?: string | null
+          user_id?: string | null
+          value_ids?: number[] | null
+          vision?: string | null
+        }
+        Update: {
+          answer_1?: string | null
+          answer_2?: string | null
+          answer_3?: string | null
+          brand_type_id?: number | null
+          communication_type_id?: number | null
+          created_at?: string | null
+          id?: number
+          mission?: string | null
+          name?: string | null
+          objective_ids?: number[] | null
+          projection_ids?: number[] | null
+          story?: string | null
+          user_id?: string | null
+          value_ids?: number[] | null
+          vision?: string | null
+        }
+      }
       value_categories: {
         Row: {
           id: number
